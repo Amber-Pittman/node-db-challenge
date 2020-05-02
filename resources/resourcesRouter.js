@@ -1,17 +1,25 @@
 const express = require("express")
-const db = require("../data/config")
+const db = require("./resources-model")
 
 const router = express.Router()
 
 router.get("/", async (req, res, next) => {
     try {
-        const resources = await db("resources as r")
-        
+        const resources = await db.getResource()        
         res.json(200).json(resources)
-    }
-    catch(err) {
+    } catch(err) {
         next(err)
     }
 })
+
+router.post("/", async (req, res, next) => {
+    try {
+        const createResource = await db.addResource(req.body)
+        return res.status(201).json(createResource)
+    } catch(err) {
+        next(err)
+    }
+})
+
 
 module.exports = router
