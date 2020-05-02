@@ -4,6 +4,22 @@ module.exports = {
   client: "sqlite3",
   useNullAsDefault: true, // Flag REQUIRED for SQLite to work
   connection: {
-      //filename: "db3" // location of our db file
-  }
+      filename: "projects.db3"
+  },
+
+  migrations: {
+    directory: "./data/migrations",
+  },
+
+  seeds: {
+    directory: "./data/seeds",
+  },
+
+  // this is needed when using foreign keys
+  pool: {
+    afterCreate: (conn, done) => {
+      // runs after a connection is made to the sqlite engine
+      conn.run("PRAGMA foreign_keys = ON", done) // turn on FK enforcement
+    },
+  },
 }
