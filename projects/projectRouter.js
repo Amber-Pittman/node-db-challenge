@@ -22,7 +22,7 @@ router.get("/:id", async (req, res, next) => {
     }
 })
 
-router.post("/", (req, res, next) => {
+router.post("/", async (req, res, next) => {
     try {
         const newProject = await db.addProject(req.body)
         return res.status(201).json(newProject)
