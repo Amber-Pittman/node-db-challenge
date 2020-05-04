@@ -1,6 +1,6 @@
 exports.seed = async function (knex) {
 
-await knex("resource").insert([
+await knex("resources").insert([
         {
             name: "Paint", 
             description: "Home Improvement"
