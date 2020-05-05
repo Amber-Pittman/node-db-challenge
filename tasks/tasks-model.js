@@ -1,15 +1,15 @@
 const db = require("../data/config")
 
 function getTask() {
-    return db("task")
+    return db("tasks")
 }
 
 function addTask(task) {
-    return db("task").insert(task)
+    return db("tasks").insert(task)
 }
 
 function deleteTask(id) {
-    return db("task").where({id}).del()
+    return db("tasks").where({id}).del()
 }
 
 module.exports = {

@@ -2,17 +2,17 @@ const db = require("../data/config")
 
 // This gets the resource
 function getResource() {
-    return db(getResource)
+    return db("resources")
 }
 
 // Add the resource
 function addResource(resource) {
-    return db("resource").insert(resource)
+    return db("resources").insert(resource)
 }
 
 // Destroy resource
 function deleteResource(id) {
-    return db("resource").where({id}).del()
+    return db("resources").where({id}).del()
 }
 
 

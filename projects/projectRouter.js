@@ -6,7 +6,7 @@ const router = express.Router()
 router.get("/", async (req, res, next) => {
     try {
         const projects = await db.getProject()
-        res.json(200).json(projects)
+        return res.json(200).json(projects)
     }
     catch(err) {
         next(err)

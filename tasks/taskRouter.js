@@ -7,8 +7,11 @@ router.get("/", async (req, res, next) => {
     try {
         const tasks = await db.getTask()
         const isComplete = tasks.map(task => 
-            task.completed ? { ...task, completed: true } : 
-                { ...task, completed: false })        
+            task.completed ? { 
+                ...task, completed: true 
+            } : { 
+                ...task, completed: false 
+            })        
         res.json(200).json(isComplete)
     } catch(err) {
         next(err)
