@@ -10,14 +10,14 @@ exports.up = async function(knex) {
             .onDelete("CASCADE")
             .onUpdate("CASCADE")
         table 
-            .integer("resource_id")
+            .integer("resources_id")
             .unsigned()
             .notNullable()
             .references("id")
             .inTable("resources")
             .onDelete("CASCADE")
             .onUpdate("CASCADE")
-        table.primary(["project_id", "resource_id"])
+        table.primary(["project_id", "resources_id"])
   })
 };
 
