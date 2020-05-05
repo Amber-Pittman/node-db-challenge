@@ -6,6 +6,7 @@ exports.up = async function(knex) {
             .references("id")
             .inTable("projects")
             .onDelete("CASCADE")
+            .onUpdate("CASCADE")
         table 
             .integer("resource_id")
             .references("id")

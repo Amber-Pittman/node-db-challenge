@@ -12,6 +12,13 @@ exports.up = async function(knex) {
       table.text("description").notNull()
       table.text("notes")
       table.boolean("completed").notNull().defaultTo(false)
+      table
+        .integer("project_id")
+        .notNull()
+        .references("id")
+        .inTable("projects")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE")
   })
 
   await knex.schema.createTable("resources", (table) => {
