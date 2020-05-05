@@ -1,3 +1,5 @@
+//const cleaner = require("knex-cleaner")
+
 exports.seed = async function (knex) {
     await knex("resources").truncate()
     await knex("tasks").truncate()
