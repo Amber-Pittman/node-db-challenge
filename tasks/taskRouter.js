@@ -12,7 +12,7 @@ router.get("/", async (req, res, next) => {
             } : { 
                 ...task, completed: false 
             })        
-        res.json(200).json(isComplete)
+        return res.status(200).json(isComplete)
     } catch(err) {
         next(err)
     }
